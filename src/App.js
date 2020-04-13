@@ -8,15 +8,15 @@ import Book from "./components/book.component";
 import BorrowBook from "./components/borrow-book.component";
 import ReturnBook from "./components/return-book.component";
 import AddBook from "./components/add-book.component";
-
+import BooksListTwo from "./components/BookListTwo";
 
 function App() {
   return (
     <Router>
       <div className="container">
-      <Navbar />
+      <Navbar /> 
       <br />
-      <Route path ="/" exact component = {BooksList} />
+      <Route path ="/community-library/" exact component = {BooksListTwo} />
       <Route path = "/show/:id" component = {Book} />
       <Route path = "/borrow/:id" component = {BorrowBook} />
       <Route path = "/return/:id" component = {ReturnBook} />

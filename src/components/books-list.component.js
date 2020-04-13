@@ -1,7 +1,34 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
+import "bootstrap/dist/css/bootstrap.min.css"
 
+
+const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
+    const pageNumbers = [];
+  
+    for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
+      pageNumbers.push(i);
+    }
+  
+    return (
+      <nav>
+        <ul className='pagination'>
+          {pageNumbers.map(number => (
+            <li key={number} className='page-item'>
+              <a onClick={() => paginate(number)} href='!#' className='page-link'>
+                {number}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    );
+  };
+  
+
+
+// Above is new way to do it taken from pagination
 // Book function component 
 // Takes in book property and uses its attributes
 const Book = props => (
@@ -15,25 +42,21 @@ const Book = props => (
         <td>{props.book.isbn}</td>
         <td>{props.book.copies}</td>
         <td>
-            <Link to={"/show/"+props.book._id}>Details</Link> | <a href="#" onClick={() => { props.deleteBook(props.book._id) }}>Delete</a> | <a href="#" onClick={() => { props.returnBook(props.book._id) }}>Return</a> |<a href="#" onClick={() => { props.borrowBook(props.book._id) }}>Borrow</a> 
+            <Link to={"/show/"+props.book._id}>Details</Link> | <a href="#" onClick={() => { props.deleteBook(props.book._id) }}>Delete</a> | <a href="/" onClick={() => { props.returnBook(props.book._id) }}>Return</a> |<a href="#" onClick={() => { props.borrowBook(props.book._id) }}>Borrow</a> 
         </td>
     </tr>
 ) 
 
+   
 export default class BooksList extends Component {
+
+
 
     constructor(props) {
         super(props);
 
         this.deleteBook = this.deleteBook.bind(this);
         this.returnBook = this.returnBook.bind(this);
-        //this.onChangeTitle = this.onChangeTitle.bind(this);
-        //this.onChangeAuthor = this.onChangeAuthor.bind(this);
-        //this.onChangeYear = this.onChangeYear.bind(this);
-        //this.onChangeIsbn = this.onChangeIsbn.bind(this);
-        //this.onChangeCopies = this.onChangeCopies.bind(this);
-        //this.onSubmit = this.onSubmit.bind(this);
-
         this.state = {
             books: []
             
@@ -69,10 +92,12 @@ export default class BooksList extends Component {
             .then(res => console.log(res.data));
 
 
-        
-        window.location='/'
+        // refresh page
+        // might change to just re render view DOM with react
+        this.forceUpdate()
     }
 
+    
     borrowBook(id) {
         Axios.post('http://localhost:5000/books/borrow/'+id)
             .then(res => console.log(res.data));
@@ -80,6 +105,7 @@ export default class BooksList extends Component {
         window.location='/'
     }
 
+    // Function that returns a single Book component (Has details of each book) for each JSON object(Book)
     bookList() {
         return this.state.books.map(currentbook => {
             return <Book book={currentbook} deleteBook={this.deleteBook} returnBook={this.returnBook} borrowBook={this.borrowBook} key={currentbook._id}/>;
@@ -91,16 +117,7 @@ export default class BooksList extends Component {
             <div>
                 <h3>Books!</h3>
                 <table className='table'>
-                    <thead className='thead-light'>
-                        <tr>
-                            <th>Image</th>
-                            <th>Title</th>
-                            <th>Author</th>
-                            <th>Year of Publication</th>
-                            <th>ISBN</th>
-                            <th>Copies</th>
-                        </tr>
-                    </thead>
+                    
                     <tbody>
                         {
                         // this method takes information from books array and puts it into the rows

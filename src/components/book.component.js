@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
+import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button'
 
 const Details = props => (
+    
     <tr>
         {//<td> <img src= "http://images.amazon.com/images/P/0753804700.01.LZZZZZZZ.jpg" > </img> </td>
         }
@@ -12,8 +15,11 @@ const Details = props => (
         <td>{props.book.publication_year}</td>
         <td>{props.book.isbn}</td>
         <td>{props.book.copies}</td>
-        <td>
-            <Link to={"/show/"+props.book._id}>Details</Link> | <a href="#" onClick={() => { props.deleteBook(props.book._id) }}>Delete</a> | <a href="#" onClick={() => { props.returnBook(props.book._id) }}>Return</a> |<a href="#" onClick={() => { props.borrowBook(props.book._id) }}>Borrow</a> 
+        <td className = 'btn-group col'>
+            <Link to={"/show/"+props.book._id}><Button variant = 'info'>Details</Button></Link> {' '}
+            <Button  display = 'inline-block' variant = 'danger' href = '#'  >Delete</Button> {' '} 
+            <Button  display = 'inline-block' variant = 'success' href="#" >Return</Button> {' '}
+            <Button className = 'text-white'  display = 'inline-block' variant = 'warning' href="#" >Borrow</Button> {' '}
         </td>
     </tr>
 )
@@ -58,7 +64,7 @@ export default class Book extends Component {
         return (
             <div>
                 <h3>{this.state.book.title} </h3>
-                <table className='table'>
+                <Table bordered responsive striped hover>
                     <thead className='thead-light'>
                         <tr>
                             <th>Image</th>
@@ -75,7 +81,7 @@ export default class Book extends Component {
                         }
                         { this.bookList() }
                     </tbody>
-                </table>
+                </Table>
             </div>
         )
     }

@@ -74,7 +74,8 @@ export default class AddBook extends Component {
         axios.post('http://localhost:5000/books/add', book)
             .then(res => console.log(res.data));
 
-        window.location = '/';
+       
+        //window.location = '/community-library/';
     }
 
     render() {
