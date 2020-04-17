@@ -12,6 +12,7 @@ export default class AddBook extends Component {
         this.onChangeYear = this.onChangeYear.bind(this);
         this.onChangeIsbn = this.onChangeIsbn.bind(this);
         this.onChangeCopies = this.onChangeCopies.bind(this);
+       
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
@@ -20,7 +21,8 @@ export default class AddBook extends Component {
             author: '',
             publication_year: 0,
             isbn: '',
-            copies: 0
+            copies: 0,
+            available: 0
         
         }
     }
@@ -55,9 +57,12 @@ export default class AddBook extends Component {
 
     onChangeCopies(e) {
         this.setState({
-            copies: e.target.value
+            copies: e.target.value,
+            available : e.target.value
         });
     }
+
+   
 
     
     onSubmit(e) {
@@ -68,7 +73,8 @@ export default class AddBook extends Component {
             author: this.state.author,
             publication_year: this.state.publication_year,
             isbn: this.state.isbn,
-            copies: this.state.copies
+            copies: this.state.copies,
+            available: this.state.available
         }
 
         console.log(book);
@@ -115,7 +121,8 @@ export default class AddBook extends Component {
                             className="form-control"
                             value={this.state.publication_year}
                             onChange={this.onChangeYear}
-                            
+                            min = '0'
+
                             />
                     </div>
 
@@ -135,11 +142,12 @@ export default class AddBook extends Component {
                         <input type="number"
                             required
                             className="form-control"
-                            value={this.state.copies}
+                            value={this.state.copies, this.state.available }
                             onChange={this.onChangeCopies}
-                            
+                            min = '0'
                             />
                     </div>
+
 
                     <div className="form-group">
                         <Button  type="submit"  > Add Book to Library </ Button >

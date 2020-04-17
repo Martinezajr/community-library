@@ -8,7 +8,7 @@ export default class MyNav extends Component {
     render(){
         return (
     
-            <Navbar collapseOnSelect expand = 'lg' bg = 'dark' variant = 'dark' sticky-top>
+            <Navbar collapseOnSelect expand = 'lg' bg = 'dark' variant = 'dark' sticky-top className = 'sticky-top'>
             
             {
                 // className's coordinate with bootstrap css / see react-bootstrap

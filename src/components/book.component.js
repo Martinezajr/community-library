@@ -16,7 +16,7 @@ const Details = props => (
         <td>{props.book.author}</td>
         <td>{props.book.publication_year}</td>
         <td>{props.book.isbn}</td>
-        <td>{props.book.copies}</td>
+        <td>{props.book.available}</td>
         
     </tr>
 )
@@ -60,7 +60,7 @@ export default class Book extends Component {
     render() {
         return (
             <div>
-                <h1>{this.state.book.title} </h1>
+                <h1 style = {{  backgroundColor : "white", border : "10px solid black",borderRadius : '5px', fontFamily: 'Libre Baskerville'}}>{this.state.book.title} </h1>
                 <Table size fluid  bordered striped hover style = {{backgroundColor : 'white', border : "10px solid black", borderRadius : '10px'}} >
                     <thead className='thead-light'>
                         <tr>

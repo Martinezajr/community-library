@@ -15,13 +15,15 @@ router.route('/add').post((req,res) => {
     const publication_year = req.body.publication_year;
     const isbn = req.body.isbn;
     const copies = req.body.copies;
+    const available = req.body.copies;
 
     const newBook = new Book({
         title,
         author,
         publication_year,
         isbn,
-        copies
+        copies,
+        available
     });
 
     newBook.save()
