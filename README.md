@@ -33,9 +33,11 @@ Otherwise go into the community-library-master folder downloaded from GitHub
 cd community-library-master
 ```
 
-Once in community-library-master folder:
+Once in community-library-master folder, go into the client directory and run npm start:
 
 ```bash
+cd client
+
 npm start
 ```
 Runs React app locally
