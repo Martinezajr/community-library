@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col'
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import Image from 'react-bootstrap/Image'
-import Alert from 'react-bootstrap/Alert'
+
 
 //SAME AS BOOK COMPONENT
 const Posts = ({ posts, loading }) => {
