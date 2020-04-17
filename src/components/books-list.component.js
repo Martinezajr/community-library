@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import "bootstrap/dist/css/bootstrap.min.css"
 
-
+// OLD WAY TO DISPLAY PAGES
 const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
     const pageNumbers = [];
   

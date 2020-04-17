@@ -1,4 +1,5 @@
 import React from 'react';
+import Nav from 'react-bootstrap/Nav'
 //PAGINATION BAR ONLY
 const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   const pageNumbers = [];
@@ -8,9 +9,9 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   }
 
   return (
-    <div className='text-center ml-5'>
-      <nav className='mb-10' >
-        <ul className='pagination text-align-center ml-10'>
+    
+      <Nav className='justify-content-center' style = {{left: "50%"}}>
+        <ul className='pagination text-align-center ' style = {{ textAlign : 'center'}}>
           {pageNumbers.map(number => (
             <li key={number} className='page-item'>
               <a onClick={() => paginate(number)} href='#' className='page-link'>
@@ -19,8 +20,8 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
             </li>
           ))}
         </ul>
-      </nav>
-    </div>
+      </Nav>
+    
   );
 };
 

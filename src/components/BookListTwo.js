@@ -32,13 +32,13 @@ const BookListTwo = () => {
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
   return (
-    <div className='container '>
-      <h1 className='text-primary mb-3'>Our Library</h1>
+    <div className='container '  >
+      <h1  style = {{  backgroundColor : "white", border : "10px solid black",borderRadius : '5px', fontFamily: 'Libre Baskerville', width : '102%'}}>Our Library</h1>
       <Posts posts={currentPosts} loading={loading} />
       <Pagination
         postsPerPage={postsPerPage}
         totalPosts={posts.length}
-        paginate={paginate}
+        paginate={paginate} 
       />
     </div>
   );

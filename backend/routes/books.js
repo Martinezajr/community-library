@@ -48,7 +48,7 @@ router.route('/delete/:id').delete((req,res) => {
 router.route('/return/:id').post((req,res) => {
     Book.findByIdAndUpdate(req.params.id)
     .then(book => {
-        book.copies = book.copies + 1;
+        book.available = book.available + 1;
 
         book.save()
         .then(() => res.json('Book Returned!'))
@@ -61,7 +61,7 @@ router.route('/return/:id').post((req,res) => {
 router.route('/borrow/:id').post((req,res) => {
     Book.findByIdAndUpdate(req.params.id)
     .then(book => {
-        book.copies = book.copies - 1;
+        book.available = book.available - 1;
 
         book.save()
         .then(() => res.json('Book Borrowed!'))

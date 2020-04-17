@@ -7,8 +7,8 @@ const bookSchema = new Schema({
         author: { type: String, required: true },
         publication_year: { type: Number, required: true },
         isbn: { type: String, required: true },
-        copies: { type: Number, required: true }
- 
+        copies: { type: Number, required: true },
+        available : { type: Number}
 });
 
 const Book = mongoose.model('Book', bookSchema);

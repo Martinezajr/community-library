@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Button from 'react-bootstrap/Button';
+import Table from 'react-bootstrap/Table';
 
 export default class AddBook extends Component {
     constructor(props) {
@@ -75,13 +77,14 @@ export default class AddBook extends Component {
             .then(res => console.log(res.data));
 
        
-        //window.location = '/community-library/';
+        window.location = '/community-library/';
     }
 
     render() {
         return (
-            <div>
-                <h3>Create New Book Record</h3>
+            <div className = 'container ' style = {{backgroundColor : 'white', border : "10px solid black", borderRadius : '10px'}}>
+
+                <h3 bordered>Create New Book Record</h3>
                 <form onSubmit={this.onSubmit}>
 
                     <div className="form-group">
@@ -91,7 +94,7 @@ export default class AddBook extends Component {
                             className="form-control"
                             value={this.state.title}
                             onChange={this.onChangeTitle}
-                            />
+                            placeholder="Please enter the books title..."/>
                     </div>
 
                     <div className="form-group">
@@ -101,16 +104,18 @@ export default class AddBook extends Component {
                             className="form-control"
                             value={this.state.author}
                             onChange={this.onChangeAuthor}
+                            placeholder="Please enter the books author..."
                             />
                     </div>
 
                     <div className="form-group">
                         <label>Year of Publication: </label>
-                        <input type="text"
+                        <input type="number"
                             required
                             className="form-control"
                             value={this.state.publication_year}
                             onChange={this.onChangeYear}
+                            
                             />
                     </div>
 
@@ -121,6 +126,7 @@ export default class AddBook extends Component {
                             className="form-control"
                             value={this.state.isbn}
                             onChange={this.onChangeIsbn}
+                            placeholder="Please enter the books ISBN..."
                             />
                     </div>
 
@@ -131,11 +137,12 @@ export default class AddBook extends Component {
                             className="form-control"
                             value={this.state.copies}
                             onChange={this.onChangeCopies}
+                            placeholder="Please enter the books number of copies..."
                             />
                     </div>
 
                     <div className="form-group">
-                        <input type="submit" value="Add Book to Library" className="btn btn-primary" />
+                        <Button  type="submit"  > Add Book to Library </ Button >
                     </div>
                 </form>
             </div>
