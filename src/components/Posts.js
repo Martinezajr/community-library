@@ -89,13 +89,13 @@ const returnCheck = ( post) => {
     <Table size fluid  bordered striped hover style = {{backgroundColor : 'white', border : "10px solid black", borderRadius : '10px'}}>
       <thead className='thead-light flex-table text-align-center fixed-header'>
                         <tr>
-                            <th className='text-align-center' >Image</th>
-                            <th className = 'text-align-center'>Title</th>
-                            <th>Author</th>
-                            <th>Year of Publication</th>
-                            <th>ISBN</th>
-                            <th>Copies Available</th>
-                            <th>Services</th>
+                            <th className='text-align-center'><strong>Image</strong></th>
+                            <th className = 'text-align-center'><strong>Title</strong></th>
+                            <th><strong>Author</strong></th>
+                            <th><strong>Year of Publication</strong></th>
+                            <th><strong>ISBN</strong></th>
+                            <th><strong>Copies Available</strong></th>
+                            <th><strong>Services</strong></th>
                         </tr>
                     </thead>
                     <tbody>
