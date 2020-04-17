@@ -88,7 +88,7 @@ export default class AddBook extends Component {
                 <form onSubmit={this.onSubmit}>
 
                     <div className="form-group">
-                        <label>Title: </label>
+                        <label><strong>Title: </strong></label>
                         <input type="text"
                             required
                             className="form-control"
@@ -98,7 +98,7 @@ export default class AddBook extends Component {
                     </div>
 
                     <div className="form-group">
-                        <label>Author: </label>
+                        <label><strong>Author: </strong></label>
                         <input type="text"
                             required
                             className="form-control"
@@ -109,7 +109,7 @@ export default class AddBook extends Component {
                     </div>
 
                     <div className="form-group">
-                        <label>Year of Publication: </label>
+                        <label><strong>Year of Publication: </strong></label>
                         <input type="number"
                             required
                             className="form-control"
@@ -120,7 +120,7 @@ export default class AddBook extends Component {
                     </div>
 
                     <div className="form-group">
-                        <label>ISBN: </label>
+                        <label><strong>ISBN: </strong></label>
                         <input type="text"
                             required
                             className="form-control"
@@ -131,13 +131,13 @@ export default class AddBook extends Component {
                     </div>
 
                     <div className="form-group">
-                        <label>Copies: </label>
-                        <input type="text"
+                        <label><strong>Copies: </strong></label>
+                        <input type="number"
                             required
                             className="form-control"
                             value={this.state.copies}
                             onChange={this.onChangeCopies}
-                            placeholder="Please enter the books number of copies..."
+                            
                             />
                     </div>
 
